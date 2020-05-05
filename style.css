@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    z-index: 1;
+}
+
+#ground {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-color: #fcfcfc;
+    border: 2px solid transparent;
+    transform: translate(-50%, -50%);
+    outline: 4px solid grey;
+/*    outline-offset: 2px;*/
+    box-sizing: content-box;
+}
+
+.box,
+.empty_box {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(chocolate 0, #814113 30%, #814113 75%, chocolate 100%);
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    border-radius: 3px;
+    border: 2px solid #fff;
+    color: #bcb8b8;
+    font-family: fantasy;
+    position: absolute;
+    transition: .3s;
+}
+
+.empty_box {
+    opacity: 0;
+}
+
+#winMessage {
+    opacity: 0;
+    z-index: -10;
+    pointer-events: none;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    background-color: #ededed;
+    padding: 2rem;
+    width: 500px;
+    transform: translateX(-50%);
+    border-radius: .4rem;
+    transition: .3s;
+}
+
+#winMessage.open {
+    top: 20px;
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+#winMessage h1 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: sans-serif;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+#winMessage div {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#winMessage div button {
+    border: none;
+    background-color: dodgerblue;
+    padding: 1rem 1.5rem;
+    color: #fcfcfc;
+    font-size: 1.9rem;
+    cursor: pointer;
+    transition: .4s;
+}
+
+#winMessage div button:nth-of-type(2) {
+    background-color: grey;
+}
+
+#winMessage div button:hover {
+    transform: translateY(-.7rem);
+}
+
+
+
+
