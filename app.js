@@ -23,6 +23,10 @@ function generateBoxes() {
         ranChoice.splice(index, 1);
     }
     for(i = 0; i < boxes.length; i++) boxes[i].index = i;
+    if(!checkIsSolveAbleOrNot()) {
+        console.log("Non Solveable, Re building the ground");
+         generateBoxes();
+    }
 }
 
 
@@ -130,4 +134,29 @@ function playerWins() {
     closeBtn.addEventListener("click", function() {
         messageBox.classList.remove("open");
     })
+};
+
+function checkIsSolveAbleOrNot() {
+    let sortedSet = [];
+    let counted = [];
+    let count = 0;
+    boxes.forEach(it => {
+        if(it.val != 0) sortedSet.push(it.val);
+    });
+    for(i = 1; i <= sortedSet.length; i++) {
+        for(j = 1; j <= sortedSet.length; j++) {
+            if(j < sortedSet[i - 1] && !counted.includes(j)) {
+                count++;
+                if(!counted.includes(sortedSet[i - 1])) {
+                    counted.push(sortedSet[i - 1]);
+                }
+                
+            } else if(sortedSet[i - 1] == 1) {
+                if(!counted.includes(sortedSet[i - 1])) {
+                    counted.push(sortedSet[i - 1]);
+                }
+            }
+        }
+    }
+    return count % 2 == 0;
 }
